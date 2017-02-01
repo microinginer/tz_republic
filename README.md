@@ -1,4 +1,13 @@
-dev_blog
+Установка
 ========
+После того как сколнируете репу нужно запустить 
 
-A Symfony project created on February 1, 2017, 6:16 pm.
+```bash
+composer install
+``` 
+
+затем 
+
+```bash
+app/console doctrine:schema:update --force 
+``` 
