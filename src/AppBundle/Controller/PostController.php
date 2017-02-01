@@ -3,18 +3,20 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Post;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Form\PostType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * Post controller.
- *
+ * Class PostController
+ * @package AppBundle\Controller
  */
 class PostController extends Controller
 {
     /**
      * Lists all post entities.
      *
+     * @throws \LogicException
      */
     public function indexAction()
     {
@@ -30,11 +32,14 @@ class PostController extends Controller
     /**
      * Creates a new post entity.
      *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \LogicException
      */
     public function newAction(Request $request)
     {
         $post = new Post();
-        $form = $this->createForm('AppBundle\Form\PostType', $post);
+        $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,7 +58,8 @@ class PostController extends Controller
 
     /**
      * Finds and displays a post entity.
-     *
+     * @param Post $post
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(Post $post)
     {
@@ -67,12 +73,15 @@ class PostController extends Controller
 
     /**
      * Displays a form to edit an existing post entity.
-     *
+     * @param Request $request
+     * @param Post $post
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \LogicException
      */
     public function editAction(Request $request, Post $post)
     {
         $deleteForm = $this->createDeleteForm($post);
-        $editForm = $this->createForm('AppBundle\Form\PostType', $post);
+        $editForm = $this->createForm(PostType::class, $post);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -90,7 +99,10 @@ class PostController extends Controller
 
     /**
      * Deletes a post entity.
-     *
+     * @param Request $request
+     * @param Post $post
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \LogicException
      */
     public function deleteAction(Request $request, Post $post)
     {

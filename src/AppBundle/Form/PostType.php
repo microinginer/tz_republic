@@ -2,10 +2,15 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\Post;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class PostType
+ * @package AppBundle\Form
+ */
 class PostType extends AbstractType
 {
     /**
@@ -15,14 +20,15 @@ class PostType extends AbstractType
     {
         $builder->add('title')->add('author')->add('contend')        ;
     }
-    
+
     /**
      * {@inheritdoc}
+     * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Post'
+            'data_class' => Post::class
         ));
     }
 
@@ -33,6 +39,4 @@ class PostType extends AbstractType
     {
         return 'appbundle_post';
     }
-
-
 }
