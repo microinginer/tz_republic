@@ -4,6 +4,9 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    guzzle:
+        public: false
+        class: GuzzleHttp\Client
+    short_url:
+        class: AppBundle\Util\ShortUrl
+        arguments: ['@guzzle']
