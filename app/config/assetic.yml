@@ -3,3 +3,7 @@ assetic:
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
+    assets:
+        angular:
+            inputs:
+                - '%kernel.root_dir%/../node_modules/angular/angular.min.js'

@@ -116,6 +116,9 @@
     </head>
     <body>
         {% block body %}{% endblock %}
+        {% javascripts '@angular' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
