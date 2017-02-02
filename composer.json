@@ -22,7 +22,8 @@
         "sensio/framework-extra-bundle": "3.0.19",
         "incenteev/composer-parameter-handler": "2.1.2",
         "stof/doctrine-extensions-bundle": "1.2.2",
-        "guzzlehttp/guzzle": "6.2.2"
+        "guzzlehttp/guzzle": "6.2.2",
+        "symfony/assetic-bundle": "2.8.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
