@@ -7,3 +7,6 @@ assetic:
         angular:
             inputs:
                 - '%kernel.root_dir%/../node_modules/angular/angular.min.js'
+        vendor:
+            inputs:
+                - '%kernel.root_dir%/Resources/public/css/vendor.css'
