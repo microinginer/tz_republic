@@ -11,3 +11,4 @@ composer install
 ```bash
 app/console doctrine:schema:update --force 
 ``` 
+
